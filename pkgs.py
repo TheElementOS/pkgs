@@ -28,6 +28,7 @@ if arg == "choco":
     result = subprocess.run(command, capture_output=True, text=True)
     print(result.stdout)
     print(result.stderr)
+    exit(0)
 
 zip_path = f'C:\\pkgs\\packages\\{arg}.zip'
 extract_to = 'C:\\pkgs\\packages'
