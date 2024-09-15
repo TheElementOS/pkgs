@@ -4,6 +4,7 @@ import configparser
 from colorama import Fore
 import argparse
 import zipfile
+import subprocess
 
 parser = argparse.ArgumentParser(description="Package Manager for ElementOS")
 parser.add_argument('-i', type=str, help="Install package.")
@@ -13,6 +14,20 @@ arg = args.i
 if arg is None:
     print(Fore.RED + "Please provide the package name.")
     exit(1)
+
+if arg == "choco":
+    print(Fore.CYAN + "Installing choco...")
+    command = [
+        "powershell", 
+        "-Command", 
+        "Set-ExecutionPolicy Bypass -Scope Process -Force; "
+        "[System.Net.ServicePointManager]::SecurityProtocol = "
+        "[System.Net.ServicePointManager]::SecurityProtocol -bor 3072; "
+        "iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"
+    ]
+    result = subprocess.run(command, capture_output=True, text=True)
+    print(result.stdout)
+    print(result.stderr)
 
 zip_path = f'C:\\pkgs\\packages\\{arg}.zip'
 extract_to = 'C:\\pkgs\\packages'
