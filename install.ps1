@@ -7,12 +7,12 @@ $folders = @(
 )
 foreach ($folder in $folders) {
     New-Item -Path $folder -ItemType Directory
-    Write-Host "Utworzono folder: $folder"
+    Write-Host "Created Folder: $folder"
 }
 $envPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine)
 foreach ($folder in $folders) {
         [System.Environment]::SetEnvironmentVariable("PATH", "$envPath;$folder", [System.EnvironmentVariableTarget]::Machine)
-        Write-Host "Dodano do PATH: $folder"
+        Write-Host "Added to PATH: $folder"
 }
 Move-Item -Path ".\pkgs.exe" -Destination "C:\pkgs\pkgs"
 Move-Item -Path ".\config.conf" -Destination "C:\pkgs\pkgs"
