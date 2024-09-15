@@ -4,7 +4,6 @@ import configparser
 from colorama import Fore
 import argparse
 import zipfile
-import time
 
 parser = argparse.ArgumentParser(description="Package Manager for ElementOS")
 parser.add_argument('-i', type=str, help="Install package.")
