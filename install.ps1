@@ -18,3 +18,4 @@ foreach ($folder in $folders) {
 Move-Item -Path ".\pkgs.exe" -Destination "C:\pkgs\pkgs"
 Move-Item -Path ".\dist\pkgs-exe.exe" -Destination "C:\pkgs\pkgs"
 Move-Item -Path ".\config.conf" -Destination "C:\pkgs\pkgs"
+Move-Item -Path ".\config-exe.conf" -Destination "C:\pkgs\pkgs"
