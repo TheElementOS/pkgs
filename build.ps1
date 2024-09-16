@@ -5,7 +5,8 @@ pyinstaller --onefile pkgs.py
 $folders = @(
     "C:\pkgs",
     "C:\pkgs\pkgs",
-    "C:\pkgs\packages"
+    "C:\pkgs\packages",
+    "C:\pkgs\temp"
 )
 foreach ($folder in $folders) {
     New-Item -Path $folder -ItemType Directory
@@ -17,4 +18,5 @@ foreach ($folder in $folders) {
         Write-Host "Added to PATH: $folder"
 }
 Move-Item -Path ".\dist\pkgs.exe" -Destination "C:\pkgs\pkgs"
+Move-Item -Path ".\dist\pkgs-exe.exe" -Destination "C:\pkgs\pkgs"
 Move-Item -Path ".\config.conf" -Destination "C:\pkgs\pkgs"
