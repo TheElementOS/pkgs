@@ -61,7 +61,6 @@ def download_package(repo_name, package_url):
     except Exception as e:
         print(Fore.YELLOW + f'[ {repo_name} ] An error occurred: {str(e)}')
     finally:
-        # Usuwanie pliku po zakończeniu
         if os.path.exists(package_path):
             os.remove(package_path)
             print(Fore.CYAN + f'[ {repo_name} ] Package removed.')
