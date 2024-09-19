@@ -23,12 +23,10 @@ foreach ($folder in $folders) {
     }
 }
 
-$envPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine)
+$envPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::User)
 foreach ($folder in $folders) {
-    if (-not ($envPath -contains $folder)) {
-        [System.Environment]::SetEnvironmentVariable("PATH", "$envPath;$folder", [System.EnvironmentVariableTarget]::Machine)
-        Write-Host "Added to PATH: $folder"
-    }
+    [System.Environment]::SetEnvironmentVariable("PATH", "$envPath;$folder", [System.EnvironmentVariableTarget]::User)
+    Write-Host "Added to PATH: $folder"
 }
 
 $files = @(

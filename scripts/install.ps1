@@ -1,11 +1,7 @@
-Set-Location ..
-mkdir temp
-Set-Location temp
-
 Invoke-WebRequest -Uri "https://github.com/TheElementOS/pkgs/raw/main/dist/pkgs-exe.exe" -OutFile ".\pkgs-exe.exe" -ErrorAction Stop
 Invoke-WebRequest -Uri "https://github.com/TheElementOS/pkgs/raw/main/dist/pkgs.exe" -OutFile ".\pkgs.exe" -ErrorAction Stop
-Invoke-WebRequest -Uri "https://github.com/TheElementOS/pkgs/raw/main/config.conf" -OutFile ".\config.conf" -ErrorAction Stop
-Invoke-WebRequest -Uri "https://github.com/TheElementOS/pkgs/raw/main/config-exe.conf" -OutFile ".\config-exe.conf" -ErrorAction Stop
+Invoke-WebRequest -Uri "https://github.com/TheElementOS/pkgs/raw/main/src/config.conf" -OutFile ".\config.conf" -ErrorAction Stop
+Invoke-WebRequest -Uri "https://github.com/TheElementOS/pkgs/raw/main/src/config-exe.conf" -OutFile ".\config-exe.conf" -ErrorAction Stop
 
 $folders = @(
     "C:\pkgs",
@@ -20,9 +16,9 @@ foreach ($folder in $folders) {
     }
 }
 
-$envPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::Machine)
+$envPath = [System.Environment]::GetEnvironmentVariable("PATH", [System.EnvironmentVariableTarget]::User)
 foreach ($folder in $folders) {
-    [System.Environment]::SetEnvironmentVariable("PATH", "$envPath;$folder", [System.EnvironmentVariableTarget]::Machine)
+    [System.Environment]::SetEnvironmentVariable("PATH", "$envPath;$folder", [System.EnvironmentVariableTarget]::User)
     Write-Host "Added to PATH: $folder"
 }
 
