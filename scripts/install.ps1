@@ -1,3 +1,6 @@
+mkdir .\temp
+Set-Location .\temp
+
 Invoke-WebRequest -Uri "https://github.com/TheElementOS/pkgs/raw/main/dist/pkgs-exe.exe" -OutFile ".\pkgs-exe.exe" -ErrorAction Stop
 Invoke-WebRequest -Uri "https://github.com/TheElementOS/pkgs/raw/main/dist/pkgs.exe" -OutFile ".\pkgs.exe" -ErrorAction Stop
 Invoke-WebRequest -Uri "https://github.com/TheElementOS/pkgs/raw/main/src/config.conf" -OutFile ".\config.conf" -ErrorAction Stop
@@ -37,6 +40,5 @@ foreach ($file in $files) {
     }
 }
 
-Set-Location ..
 Remove-Item -Path ".\temp" -Recurse -Force
 Write-Host "Removed temp directory"
