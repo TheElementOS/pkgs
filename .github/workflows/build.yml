@@ -31,8 +31,23 @@ jobs:
           pyinstaller --onefile pkgs.py
           pyinstaller --onefile pkgs-exe.py
 
-      - name: Upload Release Artifact
+      - name: Upload Release Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: windows-executable
-          path: dist/*
+          name: windows-executables
+          path: |
+            dist/pkgs.exe
+            dist/pkgs-exe.exe
+
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
+          
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: TESTING
