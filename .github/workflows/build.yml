@@ -3,10 +3,10 @@ name: Build Windows Executable
 on:
   push:
     branches:
-      - TESTING
+      - main
   pull_request:
     branches:
-      - TESTING
+      - main
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
@@ -45,9 +45,9 @@ jobs:
           git config --local user.name "GitHub Action"
           git add -A
           git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
-          
+
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: TESTING
+          branch: main

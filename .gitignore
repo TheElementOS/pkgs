@@ -1,2 +1,5 @@
 /.venv
 /build
+pkgs-exe.spec
+pkgs.spec
+/temp

@@ -46,7 +46,6 @@ def download_package(repo_name, package_url):
             file.write(response.content)
         print(Fore.GREEN + f'[ {repo_name} ] Package downloaded.')
 
-        # Uruchomienie pliku w PowerShell z pełną ścieżką
         command = f'powershell -Command "& \\"{package_path}\\""'
         result = subprocess.run(command, shell=True, capture_output=True, text=True)
         print(Fore.CYAN + f"Installation output:\n{result.stdout}")
