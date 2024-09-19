@@ -4,6 +4,7 @@ import configparser
 from colorama import Fore
 import argparse
 import subprocess
+import sys
 
 parser = argparse.ArgumentParser(description="Package Manager for ElementOS")
 parser.add_argument('-i', type=str, help="Install package.")
@@ -12,7 +13,7 @@ arg = args.i
 
 if arg is None:
     print(Fore.RED + "Please provide the package name.")
-    exit(1)
+    sys.exit(1)
 
 if arg == "choco":
     print(Fore.CYAN + "Installing choco...")
@@ -27,7 +28,7 @@ if arg == "choco":
     result = subprocess.run(command, capture_output=True, text=True)
     print(result.stdout)
     print(result.stderr)
-    exit(0)
+    sys.exit(0)
 
 appdir = 'C:\\pkgs\\temp'
 
