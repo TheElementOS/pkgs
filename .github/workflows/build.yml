@@ -24,12 +24,12 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r src/requirements.txt
 
       - name: Build with PyInstaller
         run: |
-          pyinstaller --onefile pkgs.py
-          pyinstaller --onefile pkgs-exe.py
+          pyinstaller --onefile src/pkgs.py
+          pyinstaller --onefile src/pkgs-exe.py
 
       - name: Upload Release Artifacts
         uses: actions/upload-artifact@v3
