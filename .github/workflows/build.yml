@@ -28,8 +28,8 @@ jobs:
 
       - name: Build with PyInstaller
         run: |
-          pyinstaller --onefile --onedir pkgs.py
-          pyinstaller --onefile --onedir pkgs-exe.py
+          pyinstaller --onefile pkgs.py
+          pyinstaller --onefile pkgs-exe.py
 
       - name: Upload Release Artifact
         uses: actions/upload-artifact@v3
