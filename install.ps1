@@ -15,7 +15,7 @@ foreach ($folder in $folders) {
         [System.Environment]::SetEnvironmentVariable("PATH", "$envPath;$folder", [System.EnvironmentVariableTarget]::Machine)
         Write-Host "Added to PATH: $folder"
 }
-Move-Item -Path ".\pkgs.exe" -Destination "C:\pkgs\pkgs"
+Move-Item -Path ".\dist\pkgs.exe" -Destination "C:\pkgs\pkgs"
 Move-Item -Path ".\dist\pkgs-exe.exe" -Destination "C:\pkgs\pkgs"
 Move-Item -Path ".\config.conf" -Destination "C:\pkgs\pkgs"
 Move-Item -Path ".\config-exe.conf" -Destination "C:\pkgs\pkgs"

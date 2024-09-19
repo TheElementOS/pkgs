@@ -2,6 +2,7 @@ python -m venv venv
 .\venv\Scripts\Activate
 pip install -r requirements.txt
 pyinstaller --onefile pkgs.py
+pyinstaller --onefile pkgs-exe.py
 $folders = @(
     "C:\pkgs",
     "C:\pkgs\pkgs",
