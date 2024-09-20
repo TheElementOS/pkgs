@@ -1,3 +1,5 @@
-# Pkgs is package manager for ElementOS
+# Pkgs - Package Manager for ElementOS
 
-the Contributor is **@Fivvee0** you can check my profile here [Fivvee0](https://github.com/Fivvee0)
+Contributor: [@Fivvee0](https://github.com/Fivvee0)
+
+Have an idea? Make a pull request, and I’ll review it!
